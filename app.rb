@@ -66,7 +66,7 @@ end
 
 
 #===============================================
-# 				SERVER ROUTES
+# 				USER ROUTES
 #===============================================
 post '/users' do
 
@@ -109,8 +109,9 @@ end
 
 delete '/sessions' do
 
+	session[:current_user] = nil
+	redirect '/'
 	
-
 end
 
 
