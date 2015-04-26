@@ -16,7 +16,7 @@ ActiveRecord::Base.establish_connection(
 # 				MODELS
 #===============================================
 require './models/customer'
-require './models/food'
+require './models/menuitem'
 require './models/order'
 require './models/table'
 require './models/user'
@@ -68,6 +68,12 @@ end
 #===============================================
 # 				USER ROUTES
 #===============================================
+get '/users' do
+	content_type :json
+	User.all.to_json
+
+end
+
 post '/users' do
 
 	content_type :json
@@ -83,7 +89,7 @@ end
 delete '/users/:id' do
 
 	content_type :json
-	user = User.find(params[:id])
+	user = User.find(params[:id].to_i)
 	user.destroy
 
 	{message: 'Successful'}.to_json
