@@ -1,7 +1,7 @@
 
 class User < ActiveRecord::Base
 
-	has_many(:tables)
+	has_many(:parties)
 
 	include BCrypt
 
