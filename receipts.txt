@@ -1,0 +1,30 @@
+
+
+Table: 1, Number of Guests: 4
+Cheeseburger		10
+Cheeseburger		10
+Cheeseburger		10
+Order Total: 30
+Thank you for dining with us!
+Table: 1, Number of Guests: 4
+Cheeseburger		10
+Cheeseburger		10
+Cheeseburger		10
+Order Total: 30
+Thank you for dining with us!
+Table: 1, Number of Guests: 4
+Cheeseburger		10
+Cheeseburger		10
+Cheeseburger		10
+Order Total: 30
+Thank you for dining with us!Table: 1, Number of Guests: 4
+Cheeseburger		10
+Cheeseburger		10
+Cheeseburger		10
+Order Total: 30
+Thank you for dining with us!Table: 1, Number of Guests: 4
+Cheeseburger		10
+Cheeseburger		10
+Cheeseburger		10
+Order Total: 30
+Thank you for dining with us!

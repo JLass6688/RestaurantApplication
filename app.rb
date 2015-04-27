@@ -173,7 +173,7 @@ end
 patch '/api/parties/:id' do 
 
 	content_type :json
-	party = Party.find(params[:id])
+	party = Party.find(params[:id].to_i)
 	party.update(params[:party])
 	party.to_json
 
@@ -182,10 +182,56 @@ end
 delete '/api/parties/:id' do
 
 	content_type :json
-	party = Party.find(params[:id])
+	party = Party.find(params[:id].to_i)
 	party.destroy
 
 	{message: 'Success'}.to_json
+
+end
+
+get '/api/parties/:id/receipt' do
+
+
+	content_type :json
+	party = Party.find(params[:id].to_i)
+	orders = party.orders
+	total = 0
+
+	start = "Table: #{party.table_num}, Number of Guests: #{party.party_size}\n"
+	orders.each do |order|
+		start+= "#{order.food.name}		#{order.food.price}\n"
+		total += order.food.price
+	end
+
+	start+= "Order Total: #{total}\n"
+
+	start += "Thank you for dining with us!"
+
+	File.write("receipt_print.txt", start)
+	File.open("receipts.txt", "a+"){|f| f << start }
+
+	start.to_json
+
+
+end
+
+patch '/api/parties/:id/checkout' do
+
+	content_type :json
+	party = Party.find(params[:id].to_i)
+	party.paid = true;
+
+	party.to_json
+
+end
+
+put '/api/parties/:id/checkout' do
+
+	content_type :json
+	party = Party.find(params[:id].to_i)
+	party.paid = true;
+
+	party.to_json
 
 end
 
@@ -214,20 +260,20 @@ post '/api/orders' do
 
 end
 
-put '/api/orders/:id' do 
+patch '/api/orders/:id' do 
 
 	content_type :json
-	order = Order.find(params[:id])
-	order.foods.update(price: params[:price])
+	order = Order.find(params[:id].to_i)
+	order.no_charge = true;
 	order.to_json
 
 end
 
-patch '/api/orders/:id/:food_id' do 
+patch '/api/orders/:id' do 
 
 	content_type :json
-	order = Order.find(params[:id])
-	order.foods.update(price: params[:price])
+	order = Order.find(params[:id].to_i)
+	order.no_charge = true;
 	order.to_json
 
 end
@@ -256,11 +302,19 @@ get '/api/foods/:id' do
 
 	content_type :json
 	food = Food.find(params[:id].to_i)
-	order = Party.all.
+	orders = food.orders
 
-	order.to_json
+	partyList = []
+	partyList.push(food['name'])
 
+	orders.each do |order|
+		id = order.party_id.to_i
+		party = Party.find_by(id: id)
+		partyList.push("Party: " + party.id.to_s + ", Table Number: " + party.table_num.to_s)
+	end
 
+	partyList = partyList.uniq
+	partyList.to_json
 
 	# parties = Party.where("id = ?", orders.id)
 end
@@ -301,11 +355,9 @@ delete '/api/foods/:id' do
 
 end
 
-get '/api/parties/:id/receipt' do
 
 
 
-end
 
 
 
