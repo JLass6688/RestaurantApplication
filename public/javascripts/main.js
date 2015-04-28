@@ -63,6 +63,11 @@ var foodListView;
 
 $(document).ready(function(){
 
+	//LOGIN PAGE HIDE SIGN UP MENU
+	$('#sign-up-click').click(function(evt){
+		evt.preventDefault();
+	})
+
   foodListView = new app.FoodListView({
     collection: foodCollection,
     el: $('#food-container')
