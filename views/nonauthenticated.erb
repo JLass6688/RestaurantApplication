@@ -1,11 +1,6 @@
-<html>
-<head>
-	<title>Restaurant App</title>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:600,800|Roboto+Condensed:300,400|Roboto' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
-</head>
-<body id="non-auth-body">
 
+<body id="non-auth-body">
+	<h4 id="welcome-to">Welcome to,</h4>
 	<h1 id="logo-main"><span id="logo-first-s" class="logo-s">s</span><span id="logo-middle" class="fadeIn">ervu</span><span id="logo-last-s" class="logo-s">s</span></h1>
 	<div class="fadeIn" id="non-auth-container">
 		<h2 id="tagline">A SERVICE FOR SERVERS</h2>
@@ -19,15 +14,25 @@
 
 		<p id="sign-up-text">Dont have an account? <a href="" id="sign-up-click">Sign Up!</a></p>
 		<form action="/users" method="post" id="sign-up-form">
-			<input type="text" name="username" placeholder="username...">
+			<input type="text" name="user[username]" placeholder="username...">
 			<input type="text" name="password" placeholder="password...">
 			<input type="submit" value="Sign-Up">
 		</form>
 	</div>
 
-	<script type="text/javascript" src="/javascripts/libs/jquery.js"></script>
-	<script type="text/javascript" src="/javascripts/libs/underscore.js"></script>
-	<script type="text/javascript" src="/javascripts/libs/backbone.js"></script>
-	<script type="text/javascript" src="/javascripts/main.js"></script>
 </body>
-</html>
+
+
+<script type='text/javascript'>
+var partyCollection = new app.PartyCollection();
+var partyListView;
+
+$(document).ready(function(){
+
+	$('#sign-up-click').click(function(evt){
+		evt.preventDefault();
+		$('#sign-up-form').slideToggle("slow");
+	});
+
+
+</script>

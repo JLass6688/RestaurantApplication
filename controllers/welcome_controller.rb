@@ -19,4 +19,12 @@ class WelcomeController < Sinatra::Base
     end
   end
 
+  get '/menu' do 
+    if current_user
+      erb :menu
+    else
+      erb :nonauthenticated
+    end
+  end
+
 end

@@ -1,24 +1,48 @@
-<html>
-<head>
-	<title>Restaurant App</title>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:600,800|Roboto+Condensed:300,400|Roboto' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
-</head>
 <body id="auth-body">
 
-	<h1 id="main-interface-header">My Servus</h1>
-	<section id="food-container">
+	<nav>
+		<ul id="main-nav">
+			<li><a href="">My Menu</a></li>
+			<li>
+				<form action="/sessions" method="post" id="logout">
+			      <!-- Since delete is not supported... we pass a hidden input -->
+			      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
+			      <input type="hidden" name="_method" value="delete">
+			      <button type="submit">Logout</button>
+			    </form>
+			</li>
+		</ul>
+	</nav>
+
+
+	<section id="party-list-container">
+
 
 	</section>
 
-	<script type="text/template" id="food-template">
-		<h1> <%%= name %> </h1>
 
-	</script>
-	<script type="text/javascript" src="/javascripts/libs/jquery.js"></script>
-	<script type="text/javascript" src="/javascripts/libs/underscore.js"></script>
-	<script type="text/javascript" src="/javascripts/libs/backbone.js"></script>
-	<script type="text/javascript" src="/javascripts/main.js"></script>
+
+
+
+
+	
 
 </body>
-</html>
+
+
+<script type='text/javascript'>
+var partyCollection = new app.PartyCollection();
+var partyListView;
+
+$(document).ready(function(){
+
+
+  partyListView = new app.PartyListView({
+    collection: partyCollection,
+    el: $('#party-list-container')
+  });
+
+  partyCollection.fetch();
+
+});
+</script>

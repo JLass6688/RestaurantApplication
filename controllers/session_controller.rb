@@ -2,6 +2,7 @@ class SessionController < Sinatra::Base
 
 	enable :sessions
 
+	use Rack::MethodOverride 
 	helpers Sinatra::SessionHelper
 
 	get '/pry' do
@@ -18,7 +19,6 @@ class SessionController < Sinatra::Base
 		if user.password = params[:password]
 			session[:current_user] = user.id
 			content_type :json
-			{message: 'Log-In successful'}.to_json
 			redirect '/'
 		else 
 			redirect '/'
