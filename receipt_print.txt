@@ -1,6 +1,20 @@
-Table: 1, Number of Guests: 4
+    ---Restaurant---
+    	Tag Line
+     (555)555-5555
+
+Table: 1  |  Guests: 4
+_______________________
+Item			   Cost
 Cheeseburger		10
 Cheeseburger		10
 Cheeseburger		10
-Order Total: 30
+_______________________
+			 Food: 30
+			 Tax: (1.8)
+			 Tip: 
+			 Total:
+(Suggested Tip)
+15% - 4
+20% - 6
+25% - 7
 Thank you for dining with us!

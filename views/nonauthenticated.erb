@@ -1,11 +1,15 @@
 <html>
 <head>
 	<title>Restaurant App</title>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,400|Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 </head>
-<body>
+<body id="non-auth-body">
 
-	<form action="/sessions" method="post">
+	<!-- <h1 id="logo-main"><span id="first-s" class="logo-s">s</span><span id="logo-middle" class="middle">ervu</span><span id="last-s" class="logo-s">s</span></h1> -->
+
+
+	<form action="/sessions" method="post" id="sign-in-form">
 		<input type="text" name="username" placeholder="username...">
 		<input type="text" name="password" placeholder="password...">
 		<input type="submit" value="Log-In">
