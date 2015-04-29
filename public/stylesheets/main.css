@@ -46,7 +46,7 @@
 }
 
 #tagline{
-	font-size: 22pt;
+	font-size: 18pt;
 	font-family: 'Roboto', serif;
 	font-weight: 300;
 	text-align: center;
@@ -179,6 +179,7 @@ input {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14pt;
 	opacity: .75;
+	outline: none;
 }
 
 input[type="submit"] {
@@ -218,7 +219,7 @@ input[type="submit"]:hover {
 	font-family: 'Roboto', sans-serif;
 	font-size: 12pt;
 	text-align: center;
-	color: #00D4FF;
+	color: white;
 }
 
 #sign-up-text a {
@@ -243,9 +244,10 @@ input[type="submit"]:hover {
 /*===========NAV==============*/
 nav {
 	height: 75px;
-	margin-top: 10px;
 	position: fixed;
+	top: 10px;
 	width: 100%;
+	z-index: 9999;
 }
 
 nav ul {
@@ -318,6 +320,28 @@ nav ul li a{
 }
 
 
+/*===========TABLES==============*/
+
+#party-list-container{
+	margin-top: 100px;
+}
+
+.party {
+	width: 50%;
+	background-color: white;
+	margin: 0 auto 25px;
+	padding: 10px;
+}
+
+.party h2 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 20pt;
+}
+
+.party h3 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+}
 
 
 

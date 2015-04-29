@@ -3,11 +3,11 @@ console.log("...Main.js Loaded...");
 
 //NAMESPACE
 
-var app = {};
+var app = app || {};
 
 
 //===============================================
-//				FOOD MODEL
+//				PARTY MODEL
 //===============================================
 
 app.PartyModel = Backbone.Model.extend();
@@ -18,6 +18,12 @@ app.PartyCollection = Backbone.Collection.extend({
 	model: app.PartyModel
 });
 
+
+
+
+//===============================================
+//				PARTY VIEW
+//===============================================
 
 template = $('#party-template').html();
 
