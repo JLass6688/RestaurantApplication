@@ -8,6 +8,16 @@ class PartyController < Sinatra::Base
 	  binding.pry
 	end
 
+
+# ***** Helpers *****
+	def party_params
+	return params[:party] if params[:party]
+	body_data = {}
+	@request_body ||= request.body.read.to_s
+	body_data = (JSON(@request_body)) unless @request_body.empty?
+	body_data = body_data['party'] || body_data
+	end
+
 #===============================================
 # 				PARTY ROUTES
 #===============================================
@@ -15,20 +25,20 @@ class PartyController < Sinatra::Base
 
 	get '/' do
 		content_type :json
-		Party.all.to_json
+		Party.all.to_json(include: :foods)
 	end
 
 
 	get '/:id' do
 		content_type :json
 		party = Party.find(params[:id])
-		party.orders.to_json
+		party.orders.to_json(include: :foods)
 	end
 
 
 	post '/' do
 		content_type :json
-		party = Party.create(params[:party])
+		party = Party.create(party_params)
 		party.to_json
 	end
 
@@ -37,7 +47,7 @@ class PartyController < Sinatra::Base
 		content_type :json
 		party = Party.find(params[:id])
 		party.update(params[:party])
-		party.to_json
+		party.to_json(include: :foods)
 	end
 
 
@@ -45,7 +55,7 @@ class PartyController < Sinatra::Base
 		content_type :json
 		party = Party.find(params[:id].to_i)
 		party.update(params[:party])
-		party.to_json
+		party.to_json(include: :foods)
 	end
 
 

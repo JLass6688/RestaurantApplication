@@ -35,11 +35,40 @@ app.PartyView = Backbone.View.extend({
 		console.log("New Party!")
 		this.listenTo(this.model, "change", this.render);
 	},
+	events: {
+		'click .view-orders': 'toggle'
+	},
 	render: function(){
 		var data = this.model.attributes;
 		var tpl = this.template(data);
 		this.$el.html(tpl);
 		$('body').append(this.$el);
+	},
+	showOrders: function(){
+		var id = this.model.id;
+		console.log(id);
+		var foodList = $('.orderList' + id);
+		$(foodList).empty();
+		var foods = this.model.get('foods');
+		for(var i = 0; i < foods.length; i++){
+			var food = foods[i];
+
+			var foodName = food.name;
+			var price = food.cents;
+
+			var foodItem = $('<li>').text(foodName + "    -     " +  price);
+
+			$(foodList).prepend(foodItem);
+		};
+	},
+	toggle: function(evt){
+		evt.preventDefault();
+		this.showOrders();
+		var id = this.model.id;
+		var foodList = $('.orderList' + id);
+		$(foodList).slideToggle("slow");
+
+
 	}
 });
 
