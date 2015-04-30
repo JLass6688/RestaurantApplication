@@ -242,13 +242,42 @@ input[type="submit"]:hover {
 
 
 
+/*===========LOGOUT==============*/
+#logout {
+	height: 45px;
+	position: fixed;
+	top: 10px;
+	right: 25px;
+	width: 125px;
+	z-index: 3;
+}
+
+#logout button{
+	font-family: 'Roboto', sans-serif;
+	background: none;
+	font-size: 12pt;
+	color: white;
+	border: 1px solid white;
+	height: 45px;
+	width: 125px;
+	text-align: center;
+	line-height: 45px;
+	cursor: pointer;
+}
+
+#logout button:hover {
+	background-color: rgba(190,71,67,.75);
+	border: none;
+	transition: .3s;
+}
+
 /*===========NAV==============*/
 nav {
 	height: 75px;
 	position: fixed;
 	top: 10px;
 	width: 100%;
-	z-index: 9999;
+	z-index: 2;
 }
 
 nav ul {
@@ -270,6 +299,7 @@ nav ul li {
 	float: left;
 	text-align: center;
 	line-height: 45px;
+	cursor: pointer;
 }
 
 nav ul li:hover {
@@ -290,23 +320,6 @@ nav ul li a{
 	text-decoration: none;
 }
 
-#logout {
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-#logout button{
-	width: 100%;
-	height: 100%;
-	background: none;
-	border: none;
-	display: block;
-	color: white;
-	font-family: 'Roboto', sans-serif;
-	font-size: 12pt;
-	cursor: pointer;
-}
 
 /*===========SIGN-UP FORM==============*/
 
@@ -386,6 +399,9 @@ nav ul li a{
 	text-align: center;
 }
 
+
+/*===========FOOD MENU==============*/
+
 #auth-menu-container{
 	width: 100%;
 	height: 100%;
@@ -393,15 +409,21 @@ nav ul li a{
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	padding: 85px 0 0;
+	padding: 115px 0 0;
 }
 
-#close-button{
+.close-button{
 	font-family: 'Roboto', sans-serif;
-	font-size: 48pt;
+	font-size: 30pt;
+	color: white;
 	position: absolute;
 	top: 75px;
-	right: 10px;
+	right: 40px;
+	cursor: pointer;
+}
+
+.close-button:hover {
+	color: rgba(190,71,67,.75);
 }
 
 .foodItem {
@@ -432,6 +454,7 @@ nav ul li a{
 	border: none;
 	float: left;
 	color: white;
+	outline: none;
 }
 
 .foodItem button:hover {
@@ -440,8 +463,96 @@ nav ul li a{
 	cursor: pointer;
 }
 
+.food-selected {
+	background-color: rgba(99,180,92,.75);
+	transition: .3s; 
+}
+
+.party-selected {
+	background-color: rgba(99,180,92,.75);
+	transition: .3s; 
+}
 
 
+/*===================================================================
 
+				MENU PAGE
+
+======================================================================*/
+
+#menu-body{
+	background-color: #2c2c2c;
+}
+
+#menu-container{
+	margin: 85px 0;
+}
+
+.menuItem {
+	background-color: white;
+	width: 23%;
+	float: left;
+	margin: 1%;
+	padding: 1%;
+	color: #2c2c2c;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.menuItem h2 {
+	font-size: 24pt;
+}
+
+.menuItem h3 {
+	font-size: 16pt;
+}
+
+button.delete-food {
+	width: 40%;
+	height: 50px;
+	margin: 0 auto;
+	background-color: #00D4FF;
+	border: none;
+	color: white;
+	outline: none;
+	display: block;
+	cursor: pointer;
+}
+
+button.delete-food:hover {
+	transform: scale(.9);
+	background-color: rgba(190,71,67,.75);
+	transition: .3s;
+}
+
+/*===========FOOD FORM==============*/
+#add-food-form {
+	width: 40%;
+	padding: 50px 0;
+	background-color: rgba(0,212,255,.75);
+	position: fixed;
+	top: 150px;
+	left: 30%;
+}
+
+#add-food-form button {
+	width: 40%;
+	height: 50px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: none;
+	color: #2c2c2c;
+	font-size: 14pt;
+	font-family: 'Roboto', sans-serif;
+	outline: none;
+	display: block;
+	cursor: pointer;
+
+}
+
+#add-food-form button:hover {
+	background-color: rgba(99,180,92,.75);
+	transition: .3s; 
+}
 
 

@@ -1,14 +1,18 @@
 
 var app = app || {};
 
-app.GeneralListView = Backbone.View.extend({
-	initialize: function(options){
+
+
+//===============================================
+//				Add Order Food List View
+//===============================================
+app.AuthFoodListView = Backbone.View.extend({
+	initialize: function(){
 		console.log("New Collection!");
-		this.modelView = options.modelView;
 		this.listenTo(this.collection, "sync", this.render);
 	},
 	events: {
-		'click .close-button' : 'hidedatshit'
+		'click .close-button' : 'hide'
 	},
 	render: function(){
 		this.$el.empty();
@@ -19,12 +23,58 @@ app.GeneralListView = Backbone.View.extend({
 		this.$el.append(close);
 
 		for(var i = 0; i < models.length; i++){
-			var modelView = new this.modelView({model: models[i]});
+			var modelView = new app.AuthFoodView({model: models[i]});
 			modelView.render();
 			this.$el.append(modelView.$el);
 		}
 	},
-	hidedatshit: function() {
+	hide: function() {
 		$('#auth-menu-container').hide();
+	}
+});
+
+
+//===============================================
+//				Menu Food List View
+//===============================================
+app.FoodListView = Backbone.View.extend({
+	initialize: function(){
+		console.log("New Collection!");
+		this.listenTo(this.collection, "sync", this.render);
+	},
+	render: function(){
+		this.$el.empty();
+
+		var models = this.collection.models;
+
+		for(var i = 0; i < models.length; i++){
+			var modelView = new app.FoodView({model: models[i]});
+			modelView.render();
+			this.$el.append(modelView.$el);
+		}
+	}
+});
+
+
+
+//===============================================
+//				Party List View
+//===============================================
+
+app.PartyListView = Backbone.View.extend({
+	initialize: function(){
+		console.log("New Collection!");
+		this.listenTo(this.collection, "sync", this.render);
+	},
+	render: function(){
+		this.$el.empty();
+
+		var models = this.collection.models;
+
+		for(var i = 0; i < models.length; i++){
+			var modelView = new app.PartyView({model: models[i]});
+			modelView.render();
+			this.$el.append(modelView.$el);
+		}
 	}
 });

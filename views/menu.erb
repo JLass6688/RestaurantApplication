@@ -1,18 +1,28 @@
 <body id="menu-body">
 
+
+	<form action="/sessions" method="post" id="logout">
+      <!-- Since delete is not supported... we pass a hidden input -->
+      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Logout</button>
+    </form>
+
 	<nav>
 		<ul id="menu-nav">
 			<li><a href="/">My Tables</a></li>
-			<li>
-				<form action="/sessions" method="post" id="logout">
-			      <!-- Since delete is not supported... we pass a hidden input -->
-			      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
-			      <input type="hidden" name="_method" value="delete">
-			      <button type="submit">Logout</button>
-			    </form>
-			</li>
+			<li id="add-item">Add Item</li>
 		</ul>
 	</nav>
+
+	<form action="/api/foods" method="post" id="add-food-form">
+      <input type="text" id="foodName" placeholder="name...">
+      <input type="text" id="foodType" placeholder="type of cuisine...">
+      <input type="text" id="foodCents" placeholder="price (cents)...">
+      <input type="text" id="foodNut" placeholder="nuts?...">
+      <input type="text" id="foodGluten" placeholder="gluten?...">
+      <button type="submit" id="add-food-button">Add Item</button>
+    </form>
 
 
 	<section id="menu-container">
@@ -34,15 +44,52 @@
 	var foodCollection = new app.FoodCollection();
 	var foodListView;
 
+
+
 	$(document).ready(function(){
 
-		foodListView = new app.GeneralListView({
+
+//===============================================
+//				Menu Food List View
+//===============================================
+		foodListView = new app.FoodListView({
 			collection: foodCollection,
-			modelView: app.FoodView,
 			el: $('#menu-container')
 		});
 
 	foodCollection.fetch();
+
+//===============================================
+//				Add Food Item
+//===============================================
+		$('#add-food-form').hide();
+
+		$('#add-item').on("click", function(evt){
+			evt.preventDefault();
+			$('#add-food-form').show();
+		});
+
+		$('#add-food-button').on("click", function(evt){
+			evt.preventDefault();
+			var foodName = $('#foodName').val()
+			var foodType = $('#foodType').val()
+			var foodCents = $('#foodCents').val()
+			var foodNut = $('#foodNut').val()
+			var foodGluten = $('#foodGluten').val()
+			$.ajax({
+				method: 'post',
+				url: '/api/foods',
+				data: { food: { name: foodName, cuisine_type: foodType, cents: foodCents, nut_allergens: foodNut, gluten_allergens: foodGluten } },
+				success: function(){
+					console.log("success add!");
+					foodCollection.fetch({reset: true});
+				}
+
+			})
+			$('#add-food-form').hide();
+		})
+	
+
 
 	});
 

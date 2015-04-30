@@ -1,16 +1,17 @@
 <body id="auth-body">
 
+
+	<form action="/sessions" method="post" id="logout">
+      <!-- Since delete is not supported... we pass a hidden input -->
+      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Logout</button>
+    </form>
+
+
 	<nav>
 		<ul id="main-nav">
 			<li><a href="/menu">My Menu</a></li>
-			<li>
-				<form action="/sessions" method="post" id="logout">
-			      <!-- Since delete is not supported... we pass a hidden input -->
-			      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
-			      <input type="hidden" name="_method" value="delete">
-			      <button type="submit">Logout</button>
-			    </form>
-			</li>
 		</ul>
 	</nav>
 
@@ -21,7 +22,7 @@
 		</section>
 
 		<section id="auth-menu-container">
-			<h2 id="close-button">X</h2>
+
 
 
 		</section>
@@ -46,25 +47,28 @@ var foodListView;
 
 $(document).ready(function(){
 
-	//PARTY 
-  partyListView = new app.GeneralListView({
+//===============================================
+//				Party List View
+//===============================================
+  partyListView = new app.PartyListView({
     collection: app.partyCollection,
-    modelView: app.PartyView, 
     el: $('#party-list-container')
   });
 
   app.partyCollection.fetch();
 
 
-  //FOOD
-  foodListView = new app.GeneralListView({
+ //===============================================
+//				Add Order Food List View
+//===============================================
+  foodListView = new app.AuthFoodListView({
 			collection: foodCollection,
-			modelView: app.AuthFoodView,
 			el: $('#auth-menu-container')
 		});
 
 	foodCollection.fetch();
 
+//-----Food Menu hidden on load
 	$('#auth-menu-container').hide();
 
 	

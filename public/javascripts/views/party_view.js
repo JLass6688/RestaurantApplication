@@ -61,7 +61,7 @@ app.PartyView = Backbone.View.extend({
 	addOrder: function(){
 		$('#auth-menu-container').toggle();
 		$('.party-selected').removeClass('party-selected');
-	    this.$el.addClass('food-selected');
+	    this.$el.addClass('party-selected');
 		app.partySelection = this.model;
 	}
 });
