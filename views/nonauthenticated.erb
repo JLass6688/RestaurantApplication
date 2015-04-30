@@ -17,7 +17,7 @@
 		<form action="/users" method="post" id="sign-up-form">
 			<input type="text" name="user[username]" placeholder="username...">
 			<input type="password" name="password" placeholder="password...">
-			<input type="submit" value="Sign-Up">
+			<input type="submit" value="Sign-Up" id="sign-up-submit">
 		</form>
 	</div>
 
@@ -25,8 +25,8 @@
 
 
 <script type='text/javascript'>
-var signUpButton = $('#sign-up-click')
-var signUpForm = $('#sign-up-form')
+var signUpButton = $('#sign-up-click');
+var signUpForm = $('#sign-up-form');
 
 $(document).ready(function(){
 
@@ -36,6 +36,11 @@ $(document).ready(function(){
 		evt.preventDefault();
 		$(signUpForm).slideToggle("slow");
 	});
+
+	$('sign-up-submit').on("click", function(evt){
+		evt.preventDefault();
+		$(signUpForm).hide();
+	})
 
 });
 </script>

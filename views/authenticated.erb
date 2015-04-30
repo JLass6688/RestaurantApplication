@@ -1,5 +1,7 @@
 <body id="auth-body">
 
+	<input type='hidden' id='user_id' value='<%= @user.id %>'>
+
 
 	<form action="/sessions" method="post" id="logout">
       <!-- Since delete is not supported... we pass a hidden input -->
@@ -12,6 +14,8 @@
 	<nav>
 		<ul id="main-nav">
 			<li><a href="/menu">My Menu</a></li>
+			<li id="add-party">Add Party</li>
+			<li>Grid View</li>
 		</ul>
 	</nav>
 
@@ -26,6 +30,13 @@
 
 
 		</section>
+
+		<form action="/api/foods" method="post" id="add-party-form">
+		  <span id="add-form-close">X</span>
+	      <input type="text" id="tableNum" placeholder="table number...">
+	      <input type="text" id="partySize" placeholder="number of guests...">
+	      <button type="submit" id="add-party-button">Add Item</button>
+	    </form>
 
 
 
@@ -70,6 +81,46 @@ $(document).ready(function(){
 
 //-----Food Menu hidden on load
 	$('#auth-menu-container').hide();
+
+
+//===============================================
+//				Add Party Item
+//===============================================
+		$('#add-party-form').hide();
+
+
+//BRINGS UP MENU
+		$('#add-party').on("click", function(evt){
+			evt.preventDefault();
+			$('#add-party-form').show();
+		});
+
+//ADDS FOOD ITEM AND CLOSES MENU ON COMPLETION
+		$('#add-party-button').on("click", function(evt){
+			evt.preventDefault();
+			var tableNum = $('#tableNum').val()
+			var partySize = $('#partySize').val()
+			var userId = $('#user_id').val()
+
+			$.ajax({
+				method: 'post',
+				url: '/api/parties',
+				data: { party: { table_num: tableNum, party_size: partySize, paid: "false", user_id: userId } },
+				success: function(){
+					console.log("success add!");
+					app.partyCollection.fetch({reset: true});
+				}
+
+			})
+			$('#add-party-form').hide();
+		})
+
+//CLOSE BUTTON
+		$('#add-form-close').on("click", function(evt){
+			evt.preventDefault();
+			$('#add-party-form').hide();
+		});
+
 
 	
 	

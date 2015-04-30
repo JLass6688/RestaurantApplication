@@ -12,7 +12,7 @@ class WelcomeController < Sinatra::Base
   end
 
   get '/' do
-    if current_user
+    if @user = current_user
       erb :authenticated
     else
       erb :nonauthenticated

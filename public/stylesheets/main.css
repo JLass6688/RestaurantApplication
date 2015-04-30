@@ -273,19 +273,18 @@ input[type="submit"]:hover {
 
 /*===========NAV==============*/
 nav {
-	height: 75px;
 	position: fixed;
 	top: 10px;
-	width: 100%;
+	left: 25px;
+	width: 125px;
 	z-index: 2;
 }
 
 nav ul {
-	width: 30%;
-	margin: 0 auto;
+	width: 100%;
 	list-style: none;
-	height: 75px;
 	padding: 0;
+	margin: 0;
 }
 
 nav ul li {
@@ -294,9 +293,8 @@ nav ul li {
 	color: white;
 	border: 1px solid white;
 	height: 45px;
-	width: 34%;
-	margin-right: 20%;
-	float: left;
+	width: 100%;
+	margin-bottom: 15px;
 	text-align: center;
 	line-height: 45px;
 	cursor: pointer;
@@ -306,10 +304,6 @@ nav ul li:hover {
 	background-color: #00D4FF;
 	border: none;
 	transition: .5s;
-}
-
-nav ul li:nth-child(2){
-	margin-right: 0;
 }
 
 nav ul li a{
@@ -337,7 +331,7 @@ nav ul li a{
 /*===========TABLES==============*/
 
 #party-list-container{
-	margin-top: 100px;
+	margin-top: 10px;
 }
 
 .party {
@@ -345,6 +339,7 @@ nav ul li a{
 	background-color: rgba(255,255,255,.5);
 	margin: 0 auto 25px;
 	padding: 10px;
+	position: relative;
 }
 
 .party h2 {
@@ -397,19 +392,44 @@ nav ul li a{
 	font-family: 'Roboto', sans-serif;
 	font-size: 14pt;
 	text-align: center;
+	margin: 0 0 15px;
 }
+
+button.remove-order {
+	background-color: #00D4FF;
+	color: white;
+	cursor: pointer;
+	width: 100px;
+	background-color: rgba(190,71,67,.75);
+
+}
+
+.party p {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+	position: absolute;
+	top: -10px;
+	right: 15px;
+	cursor: pointer;
+}
+
+.party p:hover {
+	color: rgba(190,71,67,.75);
+	transition: .3s;
+}
+
 
 
 /*===========FOOD MENU==============*/
 
 #auth-menu-container{
-	width: 100%;
+	width: 70%;
 	height: 100%;
 	background-color: rgba(44,44,44,.75);
 	position: fixed;
-	top: 0;
-	bottom: 0;
-	padding: 115px 0 0;
+	top: 10px;
+	left: 15%;
+	padding: 10px 0 0;
 }
 
 .close-button{
@@ -417,7 +437,7 @@ nav ul li a{
 	font-size: 30pt;
 	color: white;
 	position: absolute;
-	top: 75px;
+	top: 10px;
 	right: 40px;
 	cursor: pointer;
 }
@@ -428,10 +448,12 @@ nav ul li a{
 
 .foodItem {
 	width: 23%;
-	height: 200px;
+	height: 230px;
 	background-color: rgba(255,255,255,.75);
 	float: left;
 	margin: 2%;
+	padding-bottom: 15px;
+	position: relative;
 }
 
 .foodItem h2 {
@@ -449,7 +471,7 @@ nav ul li a{
 .foodItem button {
 	width: 40%;
 	height: 50px;
-	margin: 0 5%;
+	margin: 0 5% 10px;
 	background-color: #00D4FF;
 	border: none;
 	float: left;
@@ -473,6 +495,50 @@ nav ul li a{
 	transition: .3s; 
 }
 
+/*===========PARTY FORM==============*/
+#add-party-form {
+	width: 40%;
+	padding: 50px 0;
+	background-color: rgba(44,44,44,.75);
+	position: fixed;
+	top: 150px;
+	left: 30%;
+}
+
+#add-party-form button {
+	width: 40%;
+	height: 50px;
+	margin: 0 auto;
+	background-color: #00D4FF;
+	border: none;
+	color: white;
+	font-size: 14pt;
+	font-family: 'Roboto', sans-serif;
+	outline: none;
+	display: block;
+	cursor: pointer;
+
+}
+
+#add-party-form button:hover {
+	background-color: rgba(99,180,92,.75);
+	transition: .3s; 
+}
+
+#add-form-close {
+	font-family: 'Roboto', sans-serif;
+	font-size: 24pt;
+	color: white;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+}
+
+#add-form-close:hover {
+	color: rgba(190,71,67,.75);
+}
+
 
 /*===================================================================
 
@@ -481,22 +547,26 @@ nav ul li a{
 ======================================================================*/
 
 #menu-body{
-	background-color: #2c2c2c;
+	background: url('/img/auth-bkg.jpg');
 }
 
 #menu-container{
-	margin: 85px 0;
+	margin: 85px auto;
+	max-width: 70%;
+	overflow: auto;
 }
 
 .menuItem {
-	background-color: white;
+	background-color: rgba(255,255,255,.75);
 	width: 23%;
 	float: left;
-	margin: 1%;
-	padding: 1%;
+	margin: .5%;
+	padding: .5%;
 	color: #2c2c2c;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
+	height: 250px;
+	position: relative;
 }
 
 .menuItem h2 {
@@ -510,7 +580,9 @@ nav ul li a{
 button.delete-food {
 	width: 40%;
 	height: 50px;
-	margin: 0 auto;
+	position: absolute;
+	bottom: 10px;
+	left: 30%;
 	background-color: #00D4FF;
 	border: none;
 	color: white;
@@ -529,7 +601,7 @@ button.delete-food:hover {
 #add-food-form {
 	width: 40%;
 	padding: 50px 0;
-	background-color: rgba(0,212,255,.75);
+	background-color: rgba(44,44,44,.75);
 	position: fixed;
 	top: 150px;
 	left: 30%;
@@ -539,9 +611,9 @@ button.delete-food:hover {
 	width: 40%;
 	height: 50px;
 	margin: 0 auto;
-	background-color: #fff;
+	background-color: #00D4FF;
 	border: none;
-	color: #2c2c2c;
+	color: white;
 	font-size: 14pt;
 	font-family: 'Roboto', sans-serif;
 	outline: none;
@@ -555,4 +627,16 @@ button.delete-food:hover {
 	transition: .3s; 
 }
 
+#add-form-close {
+	font-family: 'Roboto', sans-serif;
+	font-size: 24pt;
+	color: white;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+}
 
+#add-form-close:hover {
+	color: rgba(190,71,67,.75);
+}

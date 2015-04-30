@@ -30,6 +30,7 @@ app.AuthFoodListView = Backbone.View.extend({
 	},
 	hide: function() {
 		$('#auth-menu-container').hide();
+		$('.party-selected').removeClass('party-selected');
 	}
 });
 

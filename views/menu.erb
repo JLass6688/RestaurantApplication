@@ -16,6 +16,7 @@
 	</nav>
 
 	<form action="/api/foods" method="post" id="add-food-form">
+	  <span id="add-form-close">X</span>
       <input type="text" id="foodName" placeholder="name...">
       <input type="text" id="foodType" placeholder="type of cuisine...">
       <input type="text" id="foodCents" placeholder="price (cents)...">
@@ -64,11 +65,14 @@
 //===============================================
 		$('#add-food-form').hide();
 
+
+//BRINGS UP MENU
 		$('#add-item').on("click", function(evt){
 			evt.preventDefault();
 			$('#add-food-form').show();
 		});
 
+//ADDS FOOD ITEM AND CLOSES MENU ON COMPLETION
 		$('#add-food-button').on("click", function(evt){
 			evt.preventDefault();
 			var foodName = $('#foodName').val()
@@ -88,6 +92,12 @@
 			})
 			$('#add-food-form').hide();
 		})
+
+//CLOSE BUTTON
+		$('#add-form-close').on("click", function(evt){
+			evt.preventDefault();
+			$('#add-food-form').hide();
+		});
 	
 
 
