@@ -477,6 +477,7 @@ button.remove-order {
 	float: left;
 	color: white;
 	outline: none;
+
 }
 
 .foodItem button:hover {
@@ -605,6 +606,7 @@ button.delete-food:hover {
 	position: fixed;
 	top: 150px;
 	left: 30%;
+	z-index: 2;
 }
 
 #add-food-form button {
