@@ -1,5 +1,5 @@
 ###Restaurant Application
 
-	- A restaurant POS system for taking your orders.
+- A restaurant POS system for taking your orders.
 
-	![Screen Shot](/screenshot.png)
+![Screen Shot](/screenshot.png)
