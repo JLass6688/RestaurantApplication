@@ -15,12 +15,16 @@
 	</nav>
 
 
-	<section id="party-list-container">
+		<section id="party-list-container">
 
 
-	</section>
+		</section>
+
+		<section id="auth-menu-container">
+			<h2 id="close-button">X</h2>
 
 
+		</section>
 
 
 
@@ -31,18 +35,45 @@
 
 
 <script type='text/javascript'>
-var partyCollection = new app.PartyCollection();
+//PARTY
+app.partyCollection = new app.PartyCollection();
 var partyListView;
+
+//FOOD
+var foodCollection = new app.FoodCollection();
+var foodListView;
+
 
 $(document).ready(function(){
 
-
-  partyListView = new app.PartyListView({
-    collection: partyCollection,
+	//PARTY 
+  partyListView = new app.GeneralListView({
+    collection: app.partyCollection,
+    modelView: app.PartyView, 
     el: $('#party-list-container')
   });
 
-  partyCollection.fetch();
+  app.partyCollection.fetch();
+
+
+  //FOOD
+  foodListView = new app.GeneralListView({
+			collection: foodCollection,
+			modelView: app.AuthFoodView,
+			el: $('#auth-menu-container')
+		});
+
+	foodCollection.fetch();
+
+	$('#auth-menu-container').hide();
+
+	
+	
 
 });
 </script>
+
+
+
+
+

@@ -28,3 +28,25 @@
 	
 
 </body>
+
+<script ttpe="text/javascript">
+
+	var foodCollection = new app.FoodCollection();
+	var foodListView;
+
+	$(document).ready(function(){
+
+		foodListView = new app.GeneralListView({
+			collection: foodCollection,
+			modelView: app.FoodView,
+			el: $('#menu-container')
+		});
+
+	foodCollection.fetch();
+
+	});
+
+
+</script>
+
+

@@ -8,6 +8,15 @@ class OrderController < Sinatra::Base
 	  binding.pry
 	end
 
+	  # ***** Helpers *****
+  def order_params
+    return params[:order] if params[:order]
+    body_data = {}
+    @request_body ||= request.body.read.to_s
+    body_data = (JSON(@request_body)) unless @request_body.empty?
+    body_data = body_data['order'] || body_data
+  end
+
 #===============================================
 # 				ORDER ROUTES
 #===============================================
@@ -15,7 +24,7 @@ class OrderController < Sinatra::Base
 
 	get '/' do
 		content_type :json
-		Order.all.to_json
+		foods = Order.all.to_json
 	end
 
 
@@ -28,7 +37,7 @@ class OrderController < Sinatra::Base
 
 	post '/' do
 		content_type :json
-		order = Order.create(params[:order])
+		order = Order.create(order_params)
 		order.to_json
 	end
 
