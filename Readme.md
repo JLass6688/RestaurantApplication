@@ -33,7 +33,7 @@
 ![Screen Shot](/screenshot4.png)
 
 
-3) *Adding Menu Items*
+4) *Adding Menu Items*
 	- Managers can add new food items to the menu, through entering the necessary information, including price, name, type of cuisine, and any allergens the food may contain.
 
 ![Screen Shot](/screenshot5.png)
@@ -57,7 +57,7 @@
 
 <a name="erd"/>
 ###ERD Diagram
-[Screen Shot](/erd.jpg)
+![Screen Shot](/erd.jpg)
 
 
 
