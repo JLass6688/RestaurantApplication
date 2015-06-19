@@ -78,8 +78,11 @@
 ###Upcoming Features
 #####A few of the upcoming features I have planned for Servus:
 1) Ability to allow managers to sort the menu by cuisine type and cost. 
+#####
 2) Allow servers to select multiple food items when creating an order for a party.
+#####
 3) Create a secondary view that allows servers to see all of their tables in grid view.
+#####
 4) Give the server the ability to access and print receipts for parties. 
 
  
