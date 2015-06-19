@@ -1,7 +1,7 @@
 ##Servus (POS Application)
 
 #####Servus is a fully functional POS application that allows for servers to organize and track their orders.
-![Screen Shot](/screenshot.png)
+![Screen Shot](/servus.gif)
 
 ### Table of Contents  
 #####[Features](#features) 
