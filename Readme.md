@@ -44,13 +44,25 @@
 <a name="technology"/>
 ###Technologies
 
-*Front-End*
+#####Front End
 1) Backbone.js
-	Allows for dynamic rendering of tables and menu items.
-	AJAX calls that allow our users to access menu, food itmes, and tables,  
+	a) Allows for dynamic rendering of tables and menu items.
+	b) AJAX calls that allow our users to add, delete, and access food itmes, tables, and orders from our database.
+	c) Seperation of concerns, allowing clean organization of models, views, and controllers.
+
+2) Underscore.js
+	a) Used to create organized templates to be accessed by my Backbone views for data rendering.
+
+3) JQuery.js
+	a) Used for manipulation of DOM elements.
+	b) Also used as a requirement for Backbone.js. 
 
 
-*Back-End*
+#####Back End
+1) Sinatra (Ruby)
+
+2) PostgreSQL
+	a) Used to create my data tables to store User information, food items, party information, and orders.
 
 
 
@@ -64,7 +76,11 @@
 
 <a name="newfeatures"/>
 ###Upcoming Features
-
+#####A few of the upcoming features I have planned for Servus:
+1) Ability to allow managers to sort the menu by cuisine type and cost. 
+2) Allow servers to select multiple food items when creating an order for a party.
+3) Create a secondary view that allows servers to see all of their tables in grid view.
+4) Give the server the ability to access and print receipts for parties. 
 
  
 
