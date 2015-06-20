@@ -1,9 +1,6 @@
 <body id="menu-body">
 
-
 	<form action="/sessions" method="post" id="logout">
-      <!-- Since delete is not supported... we pass a hidden input -->
-      <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
       <input type="hidden" name="_method" value="delete">
       <button type="submit">Logout</button>
     </form>
@@ -25,18 +22,7 @@
       <button type="submit" id="add-food-button">Add Item</button>
     </form>
 
-
-	<section id="menu-container">
-
-
-	</section>
-
-
-
-
-
-
-	
+	<section id="menu-container"></section>
 
 </body>
 
@@ -45,34 +31,30 @@
 	var foodCollection = new app.FoodCollection();
 	var foodListView;
 
-
-
 	$(document).ready(function(){
 
-
-//===============================================
-//				Menu Food List View
-//===============================================
+	//===============================================
+	//				Menu Food List View
+	//===============================================
 		foodListView = new app.FoodListView({
 			collection: foodCollection,
 			el: $('#menu-container')
 		});
 
-	foodCollection.fetch();
+		foodCollection.fetch();
 
-//===============================================
-//				Add Food Item
-//===============================================
+	//===============================================
+	//				Add Food Item
+	//===============================================
 		$('#add-food-form').hide();
 
-
-//BRINGS UP MENU
+	//BRINGS UP MENU
 		$('#add-item').on("click", function(evt){
 			evt.preventDefault();
 			$('#add-food-form').show();
 		});
 
-//ADDS FOOD ITEM AND CLOSES MENU ON COMPLETION
+	//ADDS FOOD ITEM AND CLOSES MENU ON COMPLETION
 		$('#add-food-button').on("click", function(evt){
 			evt.preventDefault();
 			var foodName = $('#foodName').val()
@@ -88,22 +70,16 @@
 					console.log("success add!");
 					foodCollection.fetch({reset: true});
 				}
-
 			})
 			$('#add-food-form').hide();
 		})
 
-//CLOSE BUTTON
+	//CLOSE BUTTON
 		$('#add-form-close').on("click", function(evt){
 			evt.preventDefault();
 			$('#add-food-form').hide();
 		});
-	
-
 
 	});
 
-
 </script>
-
-

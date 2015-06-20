@@ -5,7 +5,6 @@ var app = app || {};
 //===============================================
 //				PARTY VIEW
 //===============================================
-
 var partyTemplate = $('#party-template').html();
 
 app.PartyView = Backbone.View.extend({
@@ -76,17 +75,6 @@ app.PartyView = Backbone.View.extend({
 				console.log("Awesome");
 				app.partyCollection.fetch({reset: true});
 			}
-
-
 		});
 	}
 });
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
 module Sinatra
 	module SessionHelper
-
 		#===============================================
 		# 				CURRENT USER
 		#===============================================
@@ -12,14 +11,11 @@ module Sinatra
 			end
 		end
 
-
 		#===============================================
 		# 				AUTHENTICATION
 		#===============================================
 		def authentication!
 			redirect '/' unless current_user
 		end
-
 	end
-
 end

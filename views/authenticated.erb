@@ -2,14 +2,12 @@
 
 	<input type='hidden' id='user_id' value='<%= @user.id %>'>
 
-
 	<form action="/sessions" method="post" id="logout">
       <!-- Since delete is not supported... we pass a hidden input -->
       <!-- hidden  _method  delete says... "I wish I could send this as a delete" -->
       <input type="hidden" name="_method" value="delete">
       <button type="submit">Logout</button>
     </form>
-
 
 	<nav>
 		<ul id="main-nav">
@@ -19,29 +17,16 @@
 		</ul>
 	</nav>
 
+	<section id="party-list-container"></section>
 
-		<section id="party-list-container">
+	<section id="auth-menu-container"></section>
 
-
-		</section>
-
-		<section id="auth-menu-container">
-
-
-
-		</section>
-
-		<form action="/api/foods" method="post" id="add-party-form">
-		  <span id="add-form-close">X</span>
-	      <input type="text" id="tableNum" placeholder="table number...">
-	      <input type="text" id="partySize" placeholder="number of guests...">
-	      <button type="submit" id="add-party-button">Add Item</button>
-	    </form>
-
-
-
-
-	
+	<form action="/api/foods" method="post" id="add-party-form">
+	  <span id="add-form-close">X</span>
+      <input type="text" id="tableNum" placeholder="table number...">
+      <input type="text" id="partySize" placeholder="number of guests...">
+      <button type="submit" id="add-party-button">Add Item</button>
+    </form>
 
 </body>
 
@@ -55,9 +40,7 @@ var partyListView;
 var foodCollection = new app.FoodCollection();
 var foodListView;
 
-
 $(document).ready(function(){
-
 //===============================================
 //				Party List View
 //===============================================
@@ -68,7 +51,6 @@ $(document).ready(function(){
 
   app.partyCollection.fetch();
 
-
  //===============================================
 //				Add Order Food List View
 //===============================================
@@ -78,10 +60,7 @@ $(document).ready(function(){
 		});
 
 	foodCollection.fetch();
-
-//-----Food Menu hidden on load
 	$('#auth-menu-container').hide();
-
 
 //===============================================
 //				Add Party Item
@@ -121,11 +100,8 @@ $(document).ready(function(){
 			$('#add-party-form').hide();
 		});
 
-
-	
-	
-
 });
+
 </script>
 
 

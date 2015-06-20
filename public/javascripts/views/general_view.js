@@ -16,12 +16,10 @@ app.AuthFoodListView = Backbone.View.extend({
 	},
 	render: function(){
 		this.$el.empty();
-
 		var models = this.collection.models;
 		var close = $('<span>').text('X');
 		$(close).addClass('close-button');
 		this.$el.append(close);
-
 		for(var i = 0; i < models.length; i++){
 			var modelView = new app.AuthFoodView({model: models[i]});
 			modelView.render();
@@ -34,7 +32,6 @@ app.AuthFoodListView = Backbone.View.extend({
 	}
 });
 
-
 //===============================================
 //				Menu Food List View
 //===============================================
@@ -45,9 +42,7 @@ app.FoodListView = Backbone.View.extend({
 	},
 	render: function(){
 		this.$el.empty();
-
 		var models = this.collection.models;
-
 		for(var i = 0; i < models.length; i++){
 			var modelView = new app.FoodView({model: models[i]});
 			modelView.render();
@@ -56,12 +51,9 @@ app.FoodListView = Backbone.View.extend({
 	}
 });
 
-
-
 //===============================================
 //				Party List View
 //===============================================
-
 app.PartyListView = Backbone.View.extend({
 	initialize: function(){
 		console.log("New Collection!");
@@ -69,9 +61,7 @@ app.PartyListView = Backbone.View.extend({
 	},
 	render: function(){
 		this.$el.empty();
-
 		var models = this.collection.models;
-
 		for(var i = 0; i < models.length; i++){
 			var modelView = new app.PartyView({model: models[i]});
 			modelView.render();

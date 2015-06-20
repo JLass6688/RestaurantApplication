@@ -1,15 +1,11 @@
 
 var app = app || {};
 
-
 //===============================================
 //				Menu Food View
 //===============================================
-
 var foodTemplate = $('#food-template').html();
 var authFoodTemplate = $('#auth-food-template').html();
-
-
 
 app.FoodView = Backbone.View.extend({
 	tagName: 'div',
@@ -27,9 +23,7 @@ app.FoodView = Backbone.View.extend({
 		this.$el.append(tpl);
 	},
 	deleteFood: function(){
-
 		var id = this.model.get('id');
-
 		$.ajax({
 			method: 'delete',
 			url: '/api/foods/' + id,
@@ -37,17 +31,13 @@ app.FoodView = Backbone.View.extend({
 				console.log("you rock!");
 				foodCollection.fetch({reset: true});
 			}
-
 		});
-
 	}
 });
-
 
 //===============================================
 //				Select Food View
 //===============================================
-
 app.AuthFoodView = Backbone.View.extend({
 	tagName: 'div',
 	className: 'foodItem',
@@ -73,7 +63,6 @@ app.AuthFoodView = Backbone.View.extend({
 		console.log("hello");
 		var partyId = app.partySelection.get('id');
 		var foodId = app.foodSelection.get('id');
-
 		$.ajax({
 			method: 'post',
 			url: '/api/orders',

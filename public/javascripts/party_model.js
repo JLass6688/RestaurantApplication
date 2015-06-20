@@ -1,28 +1,19 @@
 console.log("...Main.js Loaded...");
 
-
-//NAMESPACE
-
 var app = app || {};
 
-
 //===============================================
-//				PARTY MODEL
+//				PARTY MODEL & COLLECTION
 //===============================================
 
 app.PartyModel = Backbone.Model.extend();
-
-
 app.PartyCollection = Backbone.Collection.extend({
 	url: '/api/parties',
 	model: app.PartyModel
 });
 
-
-
-
 //===============================================
-//				PARTY VIEW
+//				PARTY VIEWS
 //===============================================
 
 template = $('#party-template').html();

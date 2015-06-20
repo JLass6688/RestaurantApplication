@@ -10,8 +10,6 @@ ActiveRecord::Base.establish_connection(
 	:database => 'restaurant'
 )
 
-
-
 #===============================================
 # 				MODELS
 #===============================================
@@ -20,14 +18,10 @@ require './models/food'
 require './models/order'
 require './models/user'
 
-
-
 #===============================================
 # 				Helpers
 #===============================================
 require './helpers/session_helpers'
-
-
 
 #===============================================
 # 				CONTROLLERS
@@ -38,7 +32,6 @@ require './controllers/party_controller'
 require './controllers/user_controller'
 require './controllers/welcome_controller'
 require './controllers/session_controller'
-
 
 #===============================================
 # 				START APP
